@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择，添加，与删除</title>
+</head>
+
+<body>
+    <p>apple</p>
+    <p class="lee">banana</p>
+    <p class="lee">orange</p>
+    <p id="li">subray</p>
+</body>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8">
+</script>
+<script>
+
+    //1.选择，通过id class选择
+    // var p = d3.select("body").select("p");
+
+    // p.style("color","red")
+    var body =  d3.select("body")
+    var lee = d3.select("body").selectAll(".lee")
+    lee.style("color","yellow")
+
+    var li =  d3.select("body").select("#li")
+    li.style("font-size","24px")
+
+    //2.插入 append()：在选择集末尾插入元素 insert()：在选择集前面插入元素
+
+    lee.append("p").text("我在后面增加了一段") //append 遍历选择集的每个元素并在后面增加元素
+
+    body.insert("p","#li").text("我在前面噢") //再id名为li的前面增加元素
+
+    //3.删除 remove
+
+    lee[0].remove();//可通过下标删除选择集的元素
+
+</script>
+
+</html>

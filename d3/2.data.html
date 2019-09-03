@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择元素与绑定数据</title>
+</head>
+
+<body>
+    <p>apple</p>
+    <p>banana</p>
+    <p>orange</p>
+    <p>subray</p>
+</body>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8">
+</script>
+<script>
+
+//  1.datum绑定一个数据集
+//  var str = "nmsl";
+//  var p = d3.select("body").selectAll("p");
+
+//  p.datum(str);
+
+//  p.text((d,i)=>{
+//      return d + i
+//  })
+
+
+
+//2. data 绑定多个
+
+ var array = ["nmsl" , "wsnd" , "wrsndm","hhh"];//假如数据缺失则显示nan
+
+ var p = d3.select("body").selectAll("p");
+
+ p.data(array);
+
+ p.text((d,i)=>{
+     return d + i
+ })
+
+
+</script>
+
+</html>

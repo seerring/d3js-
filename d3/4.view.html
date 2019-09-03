@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>做一个简单的图表</title>
+</head>
+
+<body>
+    <svg>
+
+    </svg>
+    <!-- 在svg中，矩形的标签是rect -->
+</body>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8">
+
+</script>
+<script>
+    //svg - 是用于描述二维矢量图形的一种图形格式，是由万维网联盟制定的开放标准
+    //Canvas - 是通过 JavaScript 来绘制 2D 图形，是 HTML 5 中新增的元素
+
+    //添加画布
+    var width = 300;  //画布的宽度
+    var height = 300;   //画布的高度
+
+    var svg = d3.select("body")     //选择文档中的body元素
+        .append("svg")          //添加一个svg元素
+        .attr("width", width)       //设定宽度
+        .attr("height", height)   //设定高度
+        .style("background-color", "yellow");   //设定画布的背景颜色
+
+    //矩形的属性通常有四个
+    // x - 矩形左上角的 x 坐标
+    // y - 矩形左上角的 y 坐标
+    // width - 矩形的宽度
+    // height - 矩形的高度
+
+    var dataset = [250, 210, 170, 130, 90];
+
+
+
+    var rectHeight = 30;   //每个矩形所占的像素高度(包括空白)
+
+    svg.selectAll("rect") // 选择所有的矩形
+    .data(dataset) // 绑定数据
+    .enter() //指定选择集的enter部分？？？
+    .append("rect") //添加足够多的矩形模型
+    .attr("x",20) //矩形的x属性
+    .attr("y",(d,i)=>{
+       return  rectHeight * i 
+    })//按照下标*像素高度排列出y坐标
+    .attr("width",(d,i)=>{
+        return d
+    })//按照数据集里的值赋予矩形的宽度
+    .attr("height",rectHeight-2) // 空白2像素 高度为像素高度-空白高度
+    .attr("fill","steelblue");//举行颜色 属性为fill
+
+
+</script>
+
+</html>
